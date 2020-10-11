@@ -3,9 +3,8 @@
 ##### A cataloguing system specifcally designed for organizing scientific writing. Think Goodreads, but for researchers.
 
 
-### Introduction
+## Introduction
 
---------
 **What will the application do?**
  
 Scientists read thousands of journal articles over the course of their career. As a result, it can be hard to organize 
@@ -38,9 +37,8 @@ stored to find a certain paper I read about. And I have often wondered about wha
 look like. These all centered around the idea of creating an application centered around organizing papers by topic, 
 which is how this idea came to mind.
 
-### User Stories
+## User Stories
 
---------
 For base functionality, users should be able to:
 - **Add a record of a journal article to the cataloging system** - users should be able to add multiple records of 
 different types of articles that they read. 
@@ -49,5 +47,6 @@ different types of articles that they read.
 them with a "read" status when they have finished reading it, to keep track of which articles they have yet to read.
 - **View a list of all the journal articles added** - users should be able to see a list of all the articles they have
 added so far.
+
 
 
