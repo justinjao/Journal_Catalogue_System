@@ -1,1 +1,6 @@
-//trying an upload without the UI and the main, just in case this screws up the autobot
+//package ui;
+//
+//public class Main {
+//    public static void main(String[] args) { new CatalogueSystem(); }
+//}
+

@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public abstract class ArticleTest {
 
     Article testArticle;
+    Article testArticle2;
 
     @Test
     public void testGetters(){
@@ -30,5 +31,29 @@ public abstract class ArticleTest {
     public void testSetUnreadStatus(){
         testArticle.setUnreadStatus();
         assertFalse(testArticle.readStatus);
+    }
+
+    @Test
+    public void testSetTitle(){
+        testArticle2.setTitle("trialTitle");
+        assertEquals(testArticle2.title, "trialTitle");
+    }
+
+    @Test
+    public void testSetFirstNameAuthor(){
+        testArticle2.setFirstNameAuthor("James");
+        assertEquals(testArticle2.firstNameAuthor, "James");
+    }
+
+    @Test
+    public void testSetLastNameAuthor(){
+        testArticle2.setLastNameAuthor("Jackson");
+        assertEquals(testArticle2.lastNameAuthor, "Jackson");
+    }
+
+    @Test
+    public void testSetCategory(){
+        testArticle2.setCategory("Math");
+        assertEquals(testArticle2.category, "Math");
     }
 }

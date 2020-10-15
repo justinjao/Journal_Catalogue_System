@@ -9,4 +9,9 @@ public class PrimaryArticle extends Article {
     public PrimaryArticle(String title, String firstNameAuthor, String lastnameAuthor, String category) {
         super(title, firstNameAuthor, lastnameAuthor, category);
     }
+
+    //constructs a primary article without initializing fields
+    public PrimaryArticle() {
+        super();
+    }
 }

@@ -15,6 +15,11 @@ public abstract class Article {
         readStatus = false;
     }
 
+    //overloading constructor. Creating a constructor that initializes all fields null, so they can be set later
+    public Article() {
+
+    }
+
     // EFFECTS: returns the title of the article
     public String getTitle() {
         return title;
@@ -33,6 +38,30 @@ public abstract class Article {
     // EFFECTS: get category of the article
     public String getCategory() {
         return category;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: set the title of the article
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: set first name of author
+    public void setFirstNameAuthor(String firstName) {
+        this.firstNameAuthor = firstName;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: set last name of first author
+    public void setLastNameAuthor(String lastName) {
+        this.lastNameAuthor = lastName;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: set category of the article
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     // MODIFIES: this
