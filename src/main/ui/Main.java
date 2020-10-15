@@ -1,6 +1,6 @@
-//package ui;
-//
-//public class Main {
-//    public static void main(String[] args) { new CatalogueSystem(); }
-//}
+package ui;
+
+public class Main {
+    public static void main(String[] args) { new CatalogueSystem(); }
+}
 
