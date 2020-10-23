@@ -18,6 +18,8 @@ public abstract class ArticleTest {
         assertEquals(testArticle.getFirstNameAuthor(), testArticle.firstNameAuthor);
         assertEquals(testArticle.getLastNameAuthor(), testArticle.lastNameAuthor);
         assertEquals(testArticle.getCategory(), testArticle.category);
+        assertEquals(testArticle.getReadStatus(), testArticle.readStatus);
+        assertEquals(testArticle.getUniqueID(), testArticle.uniqueID);
 
     }
 
@@ -55,5 +57,11 @@ public abstract class ArticleTest {
     public void testSetCategory(){
         testArticle2.setCategory("Math");
         assertEquals(testArticle2.category, "Math");
+    }
+
+    @Test
+    public void setUniqueID(){
+        testArticle2.setUniqueID("MG11");
+        assertEquals(testArticle2.uniqueID, "MG11");
     }
 }

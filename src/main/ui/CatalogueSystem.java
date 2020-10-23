@@ -5,6 +5,7 @@ import model.Catalogue;
 import model.PrimaryArticle;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -51,6 +52,8 @@ public class CatalogueSystem {
             removeRecord();
         } else if (command.equals("v")) {
             viewArticleList();
+        } else if (command.equals("m")) {
+            markArticleRead();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -68,6 +71,7 @@ public class CatalogueSystem {
         System.out.println("\nSelect from:");
         System.out.println("\ta -> Add Article");
         System.out.println("\tr -> Remove Article");
+        System.out.println("\tm -> Mark Articles Read/Unread");
         System.out.println("\tv -> View Articles in System");
         System.out.println("\tq -> Quit");
     }
@@ -81,37 +85,68 @@ public class CatalogueSystem {
 
         Article article = new PrimaryArticle();
 
-        System.out.print("What's the title?");
+        System.out.println("What's the title?");
 
 
         String title = input.next();
 
         article.setTitle(title);
 
-        System.out.print("What's the first name of the author?");
+        System.out.println("What's the first name of the author?");
         String firstName = input.next();
         article.setFirstNameAuthor(firstName);
 
-        System.out.print("What's the last name of the author?");
+        System.out.println("What's the last name of the author?");
         String lastName = input.next();
         article.setLastNameAuthor(lastName);
 
-        System.out.print("What's the category?");
+        System.out.println("What's the category?");
         String category = input.next();
         article.setCategory(category);
+
+        System.out.println("Generate a Unique ID for this article:");
+        String uniqueID = input.next();
+        article.setUniqueID(uniqueID);
+
+        catalogue.addArticle(article);
+
+        System.out.print("added article successfully");
     }
 
     // MODIFIES: this
     // EFFECTS: removes a journal article from the system
     private void removeRecord() {
-        //System.out.println();
+
+        System.out.println("Which article do you want to delete? (Specify via unique ID):");
+
+        for (Article article : catalogue.getArticles()) {
+            if (article.getUniqueID().equals(input.next())) {
+                catalogue.removeArticle(article);
+            }
+        }
     }
 
     // MODIFIES: this
-    // EFFECTS: returns the list of articles currently in the system
-    private Collection<Article> viewArticleList() {
-        return catalogue.getArticles();
+    // EFFECTS: changes article read status to true
+    private void markArticleRead() {
+
+        System.out.println("Which article do you want to mark as read? (Specify via unique ID):");
+
+        for (Article article : catalogue.getArticles()) {
+            if (article.getUniqueID().equals(input.next())) {
+                article.setReadStatus();
+            }
+        }
     }
+
+    // MODIFIES: this
+    // EFFECTS: returns the list of articles titles currently in the system, and their read status
+    private void viewArticleList() {
+        for (Article article : catalogue.getArticles()) {
+            System.out.println("Title: " + article.getTitle() + " Read Status: " + article.getReadStatus());
+        }
+    }
+}
 
 //    // EFFECTS: prompts user to specify which type of article they are entering in
 //    private Article selectArticleType() {
@@ -130,9 +165,6 @@ public class CatalogueSystem {
 //
 //        }
 //    }
-
-
-}
 
 
 
