@@ -47,6 +47,14 @@ different types of articles that they read.
 them with a "read" status when they have finished reading it, to keep track of which articles they have yet to read.
 - **View a list of all the journal articles added** - users should be able to see a list of all the articles they have
 added so far.
+- **View a list of currently unread journal articles in the system** - users should be able to see a list of all 
+articles, filtered for only unread articles.
+
+- **Save records of entered journal articles** - users should be able to save the journal article records entered into
+ the system.
+
+- **Re-open cataloging system with previously open state** - after closing and re-opening the application, users should 
+be able to resume where they left off, with their article records intact.
 
 
 
