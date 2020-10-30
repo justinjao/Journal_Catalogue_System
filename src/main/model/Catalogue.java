@@ -88,10 +88,9 @@ public class Catalogue implements Writable {
         //TODO: implement this method
         JSONObject json = new JSONObject();
         json.put("articleList", articleListToJson());
-        json.put("unreadList", unreadListToJson());
+       // json.put("unreadList", unreadListToJson());
         return json;
     }
-
 
 
     private JSONArray articleListToJson() {
@@ -102,6 +101,8 @@ public class Catalogue implements Writable {
         }
         return articleListJsonArray;
     }
+/* --> this probably isn't needed, since unreadList auto repopulates every time catalogue is instantiated
+       but keeping it here for now just in case
 
     private JSONArray unreadListToJson() {
         JSONArray unreadListJsonArray = new JSONArray();
@@ -111,5 +112,5 @@ public class Catalogue implements Writable {
         }
         return unreadListJsonArray;
     }
-
+ */
 }

@@ -105,11 +105,14 @@ public abstract class Article implements Writable {
         uniqueID = userInputID;
     }
 
+    /* --> don't think this is necessary, but keeping it here for now just in case
     // EFFECTS: returns string representation of article object
     public String toString() {
         return title + ": " + lastNameAuthor + ": " + firstNameAuthor + ": " + category
                 + ": " + readStatus + ": " + uniqueID;
     }
+
+     */
 
     // see Writable interface for specification
     @Override
