@@ -20,6 +20,7 @@ public abstract class Article {
 
     //overloading constructor. Creating a constructor that initializes all fields null, so they can be set later
     public Article() {
+        readStatus = false;
 
     }
 

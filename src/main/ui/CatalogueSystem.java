@@ -54,6 +54,8 @@ public class CatalogueSystem {
             viewArticleList();
         } else if (command.equals("m")) {
             markArticleRead();
+        } else if (command.equals("vu")) {
+            viewUnreadList();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -73,6 +75,7 @@ public class CatalogueSystem {
         System.out.println("\tr -> Remove Article");
         System.out.println("\tm -> Mark Articles Read/Unread");
         System.out.println("\tv -> View Articles in System");
+        System.out.println("\tvu -> View Unread Articles Only in System");
         System.out.println("\tq -> Quit");
     }
 
@@ -129,12 +132,14 @@ public class CatalogueSystem {
     // MODIFIES: this
     // EFFECTS: changes article read status to true
     private void markArticleRead() {
-
         System.out.println("Which article do you want to mark as read? (Specify via unique ID):");
-
         for (Article article : catalogue.getArticles()) {
             if (article.getUniqueID().equals(input.next())) {
-                article.setReadStatus();
+                if (article.getReadStatus()) {
+                    article.setUnreadStatus();
+                } else {
+                    article.setReadStatus();
+                }
             }
         }
     }
@@ -146,8 +151,15 @@ public class CatalogueSystem {
             System.out.println("Title: " + article.getTitle() + " Read Status: " + article.getReadStatus());
         }
     }
-}
 
+    // MODIFIES: this
+    // EFFECTS: returns list of unread articles in the system
+    private void viewUnreadList() {
+        for (Article article : catalogue.getUnreadList()) {
+            System.out.println("Title: " + article.getTitle() + "Read Status: " + article.getReadStatus());
+        }
+    }
+}
 //    // EFFECTS: prompts user to specify which type of article they are entering in
 //    private Article selectArticleType() {
 //        String selection = "";  // force entry into loop
@@ -165,6 +177,3 @@ public class CatalogueSystem {
 //
 //        }
 //    }
-
-
-

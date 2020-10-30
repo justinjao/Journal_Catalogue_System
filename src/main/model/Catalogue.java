@@ -12,10 +12,12 @@ import java.util.List;
 
 public class Catalogue {
     Collection<Article> articleList;
+    Collection<Article> unreadList;
 
     // constructor for the catalogue system for storing all the articles a user adds
     public Catalogue() {
         articleList = new HashSet<>();
+        unreadList = new HashSet<>();
 
     }
 
@@ -47,5 +49,18 @@ public class Catalogue {
     // returns true if present, false otherwise
     public boolean checkContains(Article article) {
         return articleList.contains(article);
+    }
+
+    // gets list of unread article titles
+    // MODIFIES: this
+    // EFFECTS: for each article in the catalogue, if readStatus = unread, adds to unreadList
+    //          returns the title of each article in the unreadList
+    public Collection<Article> getUnreadList() {
+        for (Article a : articleList) {
+            if (!a.getReadStatus()) {
+                unreadList.add(a);
+            }
+        }
+        return unreadList;
     }
 }

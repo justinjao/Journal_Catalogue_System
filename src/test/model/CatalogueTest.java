@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -114,6 +115,34 @@ public class CatalogueTest {
         testCatalogue.addArticle(testPrimaryArticle);
 
         assertEquals(testCatalogue.getArticles(), testCatalogue.articleList);
+    }
+
+    @Test
+    public void testGetUnreadListEmptyList() {
+        testCatalogue.removeArticle(testPrimaryArticle);
+        testCatalogue.removeArticle(testMethodsArticle);
+        assertTrue(testCatalogue.getUnreadList().isEmpty());
+    }
+
+    @Test
+    public void testGetUnreadListNoUnread() {
+        testMethodsArticle.setReadStatus();
+        testCatalogue.addArticle(testMethodsArticle);
+        assertEquals(0, testCatalogue.getUnreadList().size());
+
+    }
+
+    @Test
+    public void testGetUnreadListOneUnread() {
+        testCatalogue.addArticle(testMethodsArticle);
+        assertEquals(1, testCatalogue.getUnreadList().size());
+    }
+
+    @Test
+    public void testGetUnreadListManyUnread() {
+        testCatalogue.addArticle(testMethodsArticle);
+        testCatalogue.addArticle(testPrimaryArticle);
+        assertEquals(2, testCatalogue.getUnreadList().size());
     }
 }
 
