@@ -6,8 +6,9 @@ package model;
 public class PrimaryArticle extends Article {
 
     // constructs a primary article
-    public PrimaryArticle(String title, String firstNameAuthor, String lastnameAuthor, String category) {
-        super(title, firstNameAuthor, lastnameAuthor, category);
+    public PrimaryArticle(String title, String firstNameAuthor,
+                          String lastNameAuthor, String category, String uniqueID) {
+        super(title, firstNameAuthor, lastNameAuthor, category, uniqueID);
     }
 
     //constructs a primary article without initializing fields

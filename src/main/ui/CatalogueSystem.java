@@ -3,26 +3,31 @@ package ui;
 import model.Article;
 import model.Catalogue;
 import model.PrimaryArticle;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // NOTE: the TellerApp project files were heavily consulted during the writing of this class for the UI
+// link to the reference project can be found here: https://github.students.cs.ubc.ca/CPSC210/TellerApp
 
 // A cataloguing system for organizing journal articles
 public class CatalogueSystem {
 
     private Catalogue catalogue;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/catalogue.json";
 
     // constructor to load the catalogue system
-    public CatalogueSystem() {
-        loadCatalogue();
+    public CatalogueSystem() throws FileNotFoundException {
+        initializeCatalogue();
     }
 
-    private void loadCatalogue() {
+    private void initializeCatalogue() {
         boolean keepGoing = true;
         String command = null;
 
@@ -56,16 +61,24 @@ public class CatalogueSystem {
             markArticleRead();
         } else if (command.equals("vu")) {
             viewUnreadList();
+        } else if (command.equals("s")) {
+            saveCatalogue();
+        } else if (command.equals("l")) {
+            loadCatalogue();
         } else {
             System.out.println("Selection not valid...");
         }
     }
+
+
 
     // MODIFIES: this
     // EFFECTS: initializes catalogue and scanner for use in the system
     private void init() {
         catalogue = new Catalogue();
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: displays menu of options to user
@@ -76,6 +89,8 @@ public class CatalogueSystem {
         System.out.println("\tm -> Mark Articles Read/Unread");
         System.out.println("\tv -> View Articles in System");
         System.out.println("\tvu -> View Unread Articles Only in System");
+        System.out.println("\ts -> Save Current Catalogue System");
+        System.out.println(":\tl -> Load Previously Saved Catalogue System");
         System.out.println("\tq -> Quit");
     }
 
@@ -148,7 +163,8 @@ public class CatalogueSystem {
     // EFFECTS: returns the list of articles titles currently in the system, and their read status
     private void viewArticleList() {
         for (Article article : catalogue.getArticles()) {
-            System.out.println("Title: " + article.getTitle() + " Read Status: " + article.getReadStatus());
+            System.out.println("Title: " + article.getTitle() + " Read Status: " + article.getReadStatus()
+                    + "Unique ID: " + article.getUniqueID());
         }
     }
 
@@ -156,9 +172,35 @@ public class CatalogueSystem {
     // EFFECTS: returns list of unread articles in the system
     private void viewUnreadList() {
         for (Article article : catalogue.getUnreadList()) {
-            System.out.println("Title: " + article.getTitle() + "Read Status: " + article.getReadStatus());
+            System.out.println("Title: " + article.getTitle() + "Read Status: "
+                    + article.getReadStatus() + "Unique ID: " + article.getUniqueID());
         }
     }
+
+
+    // EFFECTS: saves the current catalogue to output file
+    private void saveCatalogue() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(catalogue);
+            jsonWriter.close();
+            System.out.println("Saved catalogue entries! JSON can be found at " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to JSON file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads catalogue from file
+    private void loadCatalogue() {
+        try {
+            catalogue = jsonReader.read();
+            System.out.println("Loaded catalogue file from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
 }
 //    // EFFECTS: prompts user to specify which type of article they are entering in
 //    private Article selectArticleType() {

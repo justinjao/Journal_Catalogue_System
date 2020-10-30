@@ -1,0 +1,29 @@
+{
+    "unreadList": [],
+    "articleList": [
+        {
+            "readStatus": false,
+            "lastNameAuthor": "Chia",
+            "firstNameAuthor": "Shumei",
+            "title": "Phenotype-driven precision oncology as a guide for clinical decisions",
+            "category": "Oncology",
+            "uniqueID": "SCPhen"
+        },
+        {
+            "readStatus": false,
+            "lastNameAuthor": "assdf",
+            "firstNameAuthor": "\"asdf\"",
+            "title": "\"asdf\"",
+            "category": "asdfasdf",
+            "uniqueID": "asdf"
+        },
+        {
+            "readStatus": false,
+            "lastNameAuthor": "Krakauer",
+            "firstNameAuthor": "John",
+            "title": "Neuroscience Needs Behavior: Correcting a Reductionist Bias",
+            "category": "Neuroscience",
+            "uniqueID": "JKNN"
+        }
+    ]
+}

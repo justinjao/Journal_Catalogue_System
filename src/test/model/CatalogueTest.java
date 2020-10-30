@@ -8,7 +8,8 @@ import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// NOTE: the IntegetSetInterface code from the CPSC210 project files was consulted quite often when writing these tests
+// NOTE: the IntegerSetInterface code from the CPSC210 project files was consulted quite often when writing these tests
+// link: https://github.com/UBCx-Software-Construction/TPD-lecture-starters/tree/master/IntegerSetInterface3
 
 // test class of the catalogue system
 public class CatalogueTest {
@@ -20,11 +21,12 @@ public class CatalogueTest {
     public void setup() {
         testCatalogue = new Catalogue();
 
-        testPrimaryArticle = new PrimaryArticle("Phenotype-driven precision oncology as a guide for clinical decisions " +
-                "one patient at a time", "Shumei", "Chia", "Oncology");
+        testPrimaryArticle = new PrimaryArticle("Phenotype-driven precision oncology as a guide for clinical " +
+                "decisions one patient at a time", "Shumei",
+                "Chia", "Oncology", "SCPhen");
 
-        testMethodsArticle = new MethodsArticle("RGB marking with lentiviral vectors for multicolor clonal cell tracking",
-                "Kristoffer", "Weber", "Cell Staining");
+        testMethodsArticle = new MethodsArticle("RGB marking with lentiviral vectors for multicolor clonal " +
+                "cell tracking", "Kristoffer", "Weber", "Cell Staining", "RGBWeber");
     }
 
 

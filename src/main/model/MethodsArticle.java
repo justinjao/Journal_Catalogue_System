@@ -4,9 +4,12 @@ package model;
 public class MethodsArticle extends Article {
 
     //constructs a methods article
-    public MethodsArticle(String title, String firstNameAuthor, String lastNameAuthor, String category) {
-        super(title, firstNameAuthor, lastNameAuthor, category);
-
+    public MethodsArticle(String title,
+                          String firstNameAuthor,
+                          String lastNameAuthor,
+                          String category,
+                          String uniqueID) {
+        super(title, firstNameAuthor, lastNameAuthor, category, uniqueID);
     }
 
     //constructs a methods article without initializing fields

@@ -7,7 +7,7 @@ public class MethodsArticleTest extends ArticleTest {
     @BeforeEach
     public void setup() {
         testArticle = new MethodsArticle("RGB marking with lentiviral vectors for multicolor clonal cell tracking",
-                "Kristoffer", "Weber", "Cell Staining");
+                "Kristoffer", "Weber", "Cell Staining", "RGBWeber");
 
         testArticle2 = new MethodsArticle();
     }

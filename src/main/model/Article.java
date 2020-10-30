@@ -1,8 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // A class for a journal article, fields for the article title, the author's first and last name,
 // and a category that the article falls under, and whether the article has been read yet by the user
-public abstract class Article {
+public abstract class Article implements Writable {
     String title;
     String firstNameAuthor;
     String lastNameAuthor;
@@ -11,14 +14,20 @@ public abstract class Article {
     String uniqueID;
 
     // general constructor to make an article. User specifies the different fields of the paper
-    // when they add it in. By default, readStatus is set to false and uniqueID is null
-    public Article(String title, String firstNameAuthor, String lastNameAuthor, String category) {
+    // when they add it in. By default, readStatus is set to false. Primarily for ease of use in testing
+    public Article(String title, String firstNameAuthor, String lastNameAuthor, String category, String uniqueID) {
+        this.title = title;
+        this.firstNameAuthor = firstNameAuthor;
+        this.lastNameAuthor = lastNameAuthor;
+        this.category = category;
+        this.uniqueID = uniqueID;
 
         readStatus = false;
-        uniqueID = null;
+
     }
 
     //overloading constructor. Creating a constructor that initializes all fields null, so they can be set later
+    //primarily for use by the end user. readStatus set to false by default
     public Article() {
         readStatus = false;
 
@@ -94,5 +103,24 @@ public abstract class Article {
     // EFFECTS: changes uniqueID of article to user specified input
     public void setUniqueID(String userInputID) {
         uniqueID = userInputID;
+    }
+
+    // EFFECTS: returns string representation of article object
+    public String toString() {
+        return title + ": " + lastNameAuthor + ": " + firstNameAuthor + ": " + category
+                + ": " + readStatus + ": " + uniqueID;
+    }
+
+    // see Writable interface for specification
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("lastNameAuthor", lastNameAuthor);
+        json.put("firstNameAuthor", firstNameAuthor);
+        json.put("category", category);
+        json.put("readStatus", readStatus);
+        json.put("uniqueID", uniqueID);
+        return json;
     }
 }

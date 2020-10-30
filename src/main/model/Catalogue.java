@@ -1,6 +1,8 @@
 package model;
 
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -8,9 +10,10 @@ import java.util.List;
 // Represents a catalogue system for storing journal articles.
 // Contains a list (hashset) of articles.
 
-// NOTE: the IntegetSetInterface code from the CPSC210 project files was consulted quite often when writing this class
+// NOTE: the IntegerSetInterface code from the CPSC210 project files was consulted quite often when writing this class
+// link: https://github.com/UBCx-Software-Construction/TPD-lecture-starters/tree/master/IntegerSetInterface3
 
-public class Catalogue {
+public class Catalogue implements Writable {
     Collection<Article> articleList;
     Collection<Article> unreadList;
 
@@ -40,6 +43,21 @@ public class Catalogue {
         return articleList;
     }
 
+    /*
+    // EFFECTS: returns the article specified by uniqueID input
+    //TODO: need to fix this method
+    public Article getArticle(String uniqueID) {
+        Article desiredArticle = null;
+        for (Article a : articleList) {
+            if (a.getUniqueID().equals(uniqueID)) {
+                desiredArticle = a;
+            }
+            return desiredArticle;
+        }
+    }
+
+     */
+
     // EFFECTS: returns the current size of the articleList
     public int size() {
         return articleList.size();
@@ -63,4 +81,35 @@ public class Catalogue {
         }
         return unreadList;
     }
+
+    @Override
+    // see Writable interface for specification
+    public JSONObject toJson() {
+        //TODO: implement this method
+        JSONObject json = new JSONObject();
+        json.put("articleList", articleListToJson());
+        json.put("unreadList", unreadListToJson());
+        return json;
+    }
+
+
+
+    private JSONArray articleListToJson() {
+        JSONArray articleListJsonArray = new JSONArray();
+
+        for (Article a : articleList) {
+            articleListJsonArray.put(a.toJson());
+        }
+        return articleListJsonArray;
+    }
+
+    private JSONArray unreadListToJson() {
+        JSONArray unreadListJsonArray = new JSONArray();
+
+        for (Article a : unreadList) {
+            unreadListJsonArray.put(a.toJson());
+        }
+        return unreadListJsonArray;
+    }
+
 }

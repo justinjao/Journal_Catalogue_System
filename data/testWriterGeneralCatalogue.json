@@ -1,0 +1,11 @@
+{
+    "unreadList": [],
+    "articleList": [{
+        "readStatus": false,
+        "lastNameAuthor": "Chia",
+        "firstNameAuthor": "Shumei",
+        "title": "Phenotype-driven precision oncology as a guide for clinical decisions",
+        "category": "Oncology",
+        "uniqueID": "SCPhen"
+    }]
+}
