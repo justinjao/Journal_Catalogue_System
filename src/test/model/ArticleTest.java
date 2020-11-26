@@ -1,5 +1,6 @@
 package model;
 
+import model.exception.StringTooLongException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,9 +37,30 @@ public abstract class ArticleTest {
     }
 
     @Test
-    public void testSetTitle(){
-        testArticle2.setTitle("trialTitle");
-        assertEquals(testArticle2.title, "trialTitle");
+    public void testSetTitleLengthOkay(){
+        try {
+            testArticle2.setTitle("trialTitle");
+            assertEquals(testArticle2.title, "trialTitle");
+        } catch (StringTooLongException e) {
+            fail("test should not have failed!");
+        }
+
+    }
+
+    @Test
+    public void testSetTitleLengthNotOkay(){
+        try {
+            testArticle2.setTitle("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            fail("test should have failed as string too long!");
+        } catch (StringTooLongException e) {
+            //expected, so do nothing
+        }
+
     }
 
     @Test

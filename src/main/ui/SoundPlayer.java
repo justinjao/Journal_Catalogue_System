@@ -9,9 +9,11 @@ import java.io.File;
 // a simple class to play a sound
 public class SoundPlayer {
 
+    // Effects: constructor for the class
     public SoundPlayer() {
     }
 
+    // EFFECTS: plays the wav file when the save button is clicked in the catalogueviewer
     public void playSound() {
         File sound = new File("./src/main/ui/tada.wav");
 

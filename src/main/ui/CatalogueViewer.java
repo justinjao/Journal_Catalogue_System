@@ -23,16 +23,18 @@ import persistence.*;
 // lots of this code is based on the TableDemo example:
 // https://docs.oracle.com/javase/tutorial/uiswing/components/table.html
 
+// the GUI class for the program, extending JPanel
+
 public class CatalogueViewer extends JPanel {
     private boolean debug = false;
     private Catalogue catalogue;
     private JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
     private JsonReader jsonReader = new JsonReader(JSON_STORE);
     private static final String JSON_STORE = "./data/catalogue.json";
-    private static final String addString = "Add Article";
-    private static final String loadString = "Load Database";
-    private static final String saveString = "Save Database";
-    private static final String removeString = "Remove Last Row";
+    static final String addString = "Add Article";
+    static final String loadString = "Load Database";
+    static final String saveString = "Save Database";
+    static final String removeString = "Remove Last Row";
     String[] columnNames = {"Title",
             "First Name of Author",
             "Last Name of Author",
@@ -44,9 +46,10 @@ public class CatalogueViewer extends JPanel {
     Object[][] data = {};
 
 
-    // some of the code is based off the ListDemo project on the java docs:
+    // some of the code for creating buttons is based off the ListDemo project on the java docs:
     // https://docs.oracle.com/javase/tutorial/uiswing/components/list.html
 
+    // EFFECTS: constructor for the catalogue viewer, creates the object
     public  CatalogueViewer() {
         super(new BorderLayout());
         JButton addButton = createAddButton();
@@ -58,22 +61,13 @@ public class CatalogueViewer extends JPanel {
 
         add(buttonPane, BorderLayout.PAGE_END);
 
-
-
         model = new DefaultTableModel(data, columnNames);
 
         table = new JTable(model);
         table.setAutoCreateRowSorter(true);
 
-
-
-
-
-
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
-
-
 
         if (debug) {
             table.addMouseListener(new MouseAdapter() {
@@ -89,7 +83,8 @@ public class CatalogueViewer extends JPanel {
         add(scrollPane);
     }
 
-
+    // MODIFIES: this, buttonPane
+    // EFFECTS: takes in the different buttons as parameters and adds it into a JPanel
     private JPanel createButtonPane(JButton addButton, JButton removeButton, JButton loadButton, JButton saveButton) {
         //Create a panel that uses BoxLayout.
         JPanel buttonPane = new JPanel();
@@ -107,10 +102,14 @@ public class CatalogueViewer extends JPanel {
     }
 
 
+    // MODIFIES: this, saveButton
+    // EFFECTS: helper function to create a save button with corresponding action
     private JButton createSaveButton() {
         JButton saveButton = new JButton(saveString);
         saveButton.setActionCommand(saveString);
         saveButton.setEnabled(true);
+
+        // EFFECTS: defines action for when button is pressed
         saveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
 
@@ -123,6 +122,8 @@ public class CatalogueViewer extends JPanel {
         });
         return saveButton;
     }
+    // MODIFIES: this
+// EFFECTS: writes the data to a JSON file to be read in later
 
     private void writeToJson() {
         Catalogue cc = new Catalogue();
@@ -147,7 +148,8 @@ public class CatalogueViewer extends JPanel {
         }
     }
 
-
+    // MODIFIES: this, removeButton
+    // EFFECTS: helper function to create a remove button with corresponding action
     private JButton createRemoveButton() {
         JButton removeButton = new JButton(removeString);
         removeButton.setActionCommand(removeString);
@@ -160,7 +162,8 @@ public class CatalogueViewer extends JPanel {
         return removeButton;
     }
 
-
+    // MODIFIES: this, loadButton
+    // EFFECTS: helper function to create a load button with corresponding action
     private JButton createLoadButton() {
         JButton loadButton = new JButton(loadString);
         loadButton.setActionCommand(loadString);
@@ -175,7 +178,8 @@ public class CatalogueViewer extends JPanel {
         return loadButton;
     }
 
-
+    // MODIFIES: this, addButton
+    // EFFECTS: helper function to create an add button with corresponding action
     private JButton createAddButton() {
         JButton addButton = new JButton(addString);
         addButton.setActionCommand(addString);
@@ -191,6 +195,8 @@ public class CatalogueViewer extends JPanel {
 
     Catalogue catalogueData = loadPrevCatalogue();
 
+    // MODIFIES: this
+    // EFFECTS: reads in the JSON file and writes to a Catalogue Object
     Catalogue loadPrevCatalogue() {
         try {
             catalogue = jsonReader.read();
@@ -205,6 +211,8 @@ public class CatalogueViewer extends JPanel {
     // https://stackoverflow.com/questions/41208940/how-do-i-convert-a-set-into-2d-array-in-java
     // Object[][] data = transformSetTo2dArray(catalogueData.getArticles());
 
+    // MODIFIES: this
+    // EFFECTS: takes in the Hashset from Catalogue and converts it to 2d array for JTable
     Object[][] transformSetTo2dArray(Collection<Article> articles) {
 
         if (articles == null) {
@@ -226,7 +234,7 @@ public class CatalogueViewer extends JPanel {
     }
 
 
-
+    // EFFECTS: prints out info for debugging if needed
     private void printDebugData(JTable table) {
         int numRows = table.getRowCount();
         int numCols = table.getColumnCount();
@@ -244,11 +252,8 @@ public class CatalogueViewer extends JPanel {
     }
 
 
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
+    // MODIFIES: this
+    // effects: instantiates the entire GUI
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("CatalogueViewer");
@@ -263,7 +268,8 @@ public class CatalogueViewer extends JPanel {
         frame.pack();
         frame.setVisible(true);
     }
-
+    // EFFECTS: main function, runs the program
+    
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.

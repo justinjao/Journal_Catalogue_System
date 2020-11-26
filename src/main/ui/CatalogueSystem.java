@@ -3,6 +3,7 @@ package ui;
 import model.Article;
 import model.Catalogue;
 import model.PrimaryArticle;
+import model.exception.StringTooLongException;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -110,7 +111,11 @@ public class CatalogueSystem {
 
         String title = input.next();
 
-        article.setTitle(title);
+        try {
+            article.setTitle(title);
+        } catch (StringTooLongException e) {
+            System.out.println("title string was too long");
+        }
 
         System.out.println("What's the first name of the author?");
         String firstName = input.next();
@@ -204,20 +209,3 @@ public class CatalogueSystem {
     }
 
 }
-//    // EFFECTS: prompts user to specify which type of article they are entering in
-//    private Article selectArticleType() {
-//        String selection = "";  // force entry into loop
-//
-//        while (!(selection.equals("p") || selection.equals("m"))) {
-//            System.out.println("p for Primary Article");
-//            System.out.println("m for Methods Article");
-//            selection = input.next();
-//            selection = selection.toLowerCase();
-//        }
-//
-//        if (selection.equals("p")) {
-//            new PrimaryArticle();
-//        } else {
-//
-//        }
-//    }

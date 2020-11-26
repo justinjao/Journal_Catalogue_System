@@ -56,5 +56,17 @@ articles, filtered for only unread articles.
 - **Re-open cataloging system with previously open state** - after closing and re-opening the application, users should 
 be able to resume where they left off, with their article records intact.
 
+## Phase 4: Task 2
+
+I chose to implement build upon my main class to make it more robust. 
+
+One concern with entering in article titles from scientific journals is that they can 
+sometimes be very long, which doesn't look great when trying to view all the other papers in the system.
+
+Therefore, I desired to ensure that they can only input strings of a certain length. 
+
+The **Article** class (the main object class in my program) now throws a **StringTooLongException** if a user tries to
+ call **setTitle** with a string parameter that is too long. 
+
 
 

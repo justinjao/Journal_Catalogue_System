@@ -1,43 +1,11 @@
 {"articleList": [
     {
-        "readStatus": false,
-        "lastNameAuthor": "asd",
-        "firstNameAuthor": "asd",
-        "title": "asd",
-        "category": "asd",
-        "uniqueID": "ads"
-    },
-    {
         "readStatus": true,
-        "lastNameAuthor": "test",
-        "firstNameAuthor": "test",
-        "title": "test",
-        "category": "test",
-        "uniqueID": "test"
-    },
-    {
-        "readStatus": true,
-        "lastNameAuthor": "sdfsdf",
-        "firstNameAuthor": "sdfsdf",
-        "title": "sdfsdf",
-        "category": "sdfsdf",
-        "uniqueID": "qqqq"
-    },
-    {
-        "readStatus": true,
-        "lastNameAuthor": "fff",
-        "firstNameAuthor": "fff",
-        "title": "ffff",
-        "category": "fff",
-        "uniqueID": "fff"
-    },
-    {
-        "readStatus": false,
-        "lastNameAuthor": "erer",
-        "firstNameAuthor": "sdfsdf",
-        "title": "sdfsdf",
-        "category": "erer",
-        "uniqueID": "ere"
+        "lastNameAuthor": "Krokatoa",
+        "firstNameAuthor": "John",
+        "title": "Neuroscience Needs Behaviour",
+        "category": "Neuroscience",
+        "uniqueID": "NNBN"
     },
     {
         "readStatus": true,
@@ -49,11 +17,35 @@
     },
     {
         "readStatus": true,
+        "lastNameAuthor": "fff",
+        "firstNameAuthor": "fff",
+        "title": "ffff",
+        "category": "fff",
+        "uniqueID": "fff"
+    },
+    {
+        "readStatus": true,
         "lastNameAuthor": "fjfjf",
         "firstNameAuthor": "fjfjf",
         "title": "fjfj",
         "category": "fjfjf",
         "uniqueID": "fjfj"
+    },
+    {
+        "readStatus": false,
+        "lastNameAuthor": "Sottoriva",
+        "firstNameAuthor": "Andrea",
+        "title": "A Big Bang model of human colorectal tumor growth",
+        "category": "Cancer",
+        "uniqueID": "BBCBang"
+    },
+    {
+        "readStatus": true,
+        "lastNameAuthor": "test",
+        "firstNameAuthor": "test",
+        "title": "test",
+        "category": "test",
+        "uniqueID": "test"
     },
     {
         "readStatus": true,
@@ -62,5 +54,13 @@
         "title": "ddd",
         "category": "ddd",
         "uniqueID": "dfdf"
+    },
+    {
+        "readStatus": false,
+        "lastNameAuthor": "asd",
+        "firstNameAuthor": "asd",
+        "title": "asd",
+        "category": "asd",
+        "uniqueID": "ads"
     }
 ]}

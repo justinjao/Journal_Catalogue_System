@@ -6,11 +6,13 @@ import persistence.Writable;
 import java.util.Collection;
 import java.util.HashSet;
 
-// Represents a catalogue system for storing journal articles.
-// Contains a list (hashset) of articles.
+
 
 // NOTE: the IntegerSetInterface code from the CPSC210 project files was consulted quite often when writing this class
 // link: https://github.com/UBCx-Software-Construction/TPD-lecture-starters/tree/master/IntegerSetInterface3
+
+// Represents a catalogue system for storing journal articles.
+// Contains a list (hashset) of articles.
 
 public class Catalogue implements Writable {
     Collection<Article> articleList;
@@ -42,20 +44,7 @@ public class Catalogue implements Writable {
         return articleList;
     }
 
-    /*
-    // EFFECTS: returns the article specified by uniqueID input
-    //TODO: need to fix this method
-    public Article getArticle(String uniqueID) {
-        Article desiredArticle = null;
-        for (Article a : articleList) {
-            if (a.getUniqueID().equals(uniqueID)) {
-                desiredArticle = a;
-            }
-            return desiredArticle;
-        }
-    }
 
-     */
 
     // EFFECTS: returns the current size of the articleList
     public int size() {

@@ -1,5 +1,6 @@
 package model;
 
+import model.exception.StringTooLongException;
 import org.json.JSONObject;
 import persistence.Writable;
 
@@ -71,8 +72,12 @@ public abstract class Article implements Writable {
 
     // MODIFIES: this
     // EFFECTS: set the title of the article
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String title) throws StringTooLongException {
+        if (title.length() > 500) {
+            throw new StringTooLongException();
+        } else {
+            this.title = title;
+        }
     }
 
     // MODIFIES: this
@@ -110,15 +115,6 @@ public abstract class Article implements Writable {
     public void setUniqueID(String userInputID) {
         uniqueID = userInputID;
     }
-
-    /* --> don't think this is necessary, but keeping it here for now just in case
-    // EFFECTS: returns string representation of article object
-    public String toString() {
-        return title + ": " + lastNameAuthor + ": " + firstNameAuthor + ": " + category
-                + ": " + readStatus + ": " + uniqueID;
-    }
-
-     */
 
     // see Writable interface for specification
     @Override
