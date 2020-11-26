@@ -62,19 +62,6 @@ public class JsonReader {
         }
     }
 
-    /* actually, we might not need this, since unreadList will auto repopulate every time getUnreadList is called
-    // MODIFIES: catalogue
-    // EFFECTS: parses unread articles from JSON object, then adds them to catalogue unreadList
-    private void addArticlesToUnreadList(Catalogue catalogue, JSONObject jsonObject) {
-        JSONArray unreadListJsonArray = jsonObject.getJSONArray("unreadList");
-
-        for (Object json : unreadListJsonArray) {
-            JSONObject nextArticle = (JSONObject) json;
-            addUnreadArticle(catalogue, nextArticle);
-        }
-    }
-
-     */
 
     // MODIFIES: catalogue
     // EFFECTS: parses articles from JSON object and adds it to catalogue

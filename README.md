@@ -67,6 +67,13 @@ Therefore, I desired to ensure that they can only input strings of a certain len
 
 The **Article** class (the main object class in my program) now throws a **StringTooLongException** if a user tries to
  call **setTitle** with a string parameter that is too long. 
+ 
+ ## Phase 4: Task 3
+ 
+ - I would use a Linked Hashmap, or a treeset next time, as in retrospect order was quite helpful
+ for working with the data (sorting by recent addition of the entry would have been great to have)
+ - I would remove the methods article, as I didn't really end up using this at all, and make it a field instead
+ - I think having a more integrated UI class as well would be nice
 
 
 
