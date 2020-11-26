@@ -1,28 +1,66 @@
-{
-    "articleList": [
-        {
-            "readStatus": false,
-            "lastNameAuthor": "Chia",
-            "firstNameAuthor": "Shumei",
-            "title": "Phenotype-driven precision oncology as a guide for clinical decisions",
-            "category": "Oncology",
-            "uniqueID": "SCPhen"
-        },
-        {
-            "readStatus": false,
-            "lastNameAuthor": "assdf",
-            "firstNameAuthor": "\"asdf\"",
-            "title": "\"asdf\"",
-            "category": "asdfasdf",
-            "uniqueID": "asdf"
-        },
-        {
-            "readStatus": false,
-            "lastNameAuthor": "Krakauer",
-            "firstNameAuthor": "John",
-            "title": "Neuroscience Needs Behavior: Correcting a Reductionist Bias",
-            "category": "Neuroscience",
-            "uniqueID": "JKNN"
-        }
-    ]
-}
+{"articleList": [
+    {
+        "readStatus": false,
+        "lastNameAuthor": "asd",
+        "firstNameAuthor": "asd",
+        "title": "asd",
+        "category": "asd",
+        "uniqueID": "ads"
+    },
+    {
+        "readStatus": true,
+        "lastNameAuthor": "test",
+        "firstNameAuthor": "test",
+        "title": "test",
+        "category": "test",
+        "uniqueID": "test"
+    },
+    {
+        "readStatus": true,
+        "lastNameAuthor": "sdfsdf",
+        "firstNameAuthor": "sdfsdf",
+        "title": "sdfsdf",
+        "category": "sdfsdf",
+        "uniqueID": "qqqq"
+    },
+    {
+        "readStatus": true,
+        "lastNameAuthor": "fff",
+        "firstNameAuthor": "fff",
+        "title": "ffff",
+        "category": "fff",
+        "uniqueID": "fff"
+    },
+    {
+        "readStatus": false,
+        "lastNameAuthor": "erer",
+        "firstNameAuthor": "sdfsdf",
+        "title": "sdfsdf",
+        "category": "erer",
+        "uniqueID": "ere"
+    },
+    {
+        "readStatus": true,
+        "lastNameAuthor": "Shumei",
+        "firstNameAuthor": "Chia",
+        "title": "Phenotype-driven precision oncology as a guide for clinical decisions",
+        "category": "Oncology",
+        "uniqueID": "SCPhen1"
+    },
+    {
+        "readStatus": true,
+        "lastNameAuthor": "fjfjf",
+        "firstNameAuthor": "fjfjf",
+        "title": "fjfj",
+        "category": "fjfjf",
+        "uniqueID": "fjfj"
+    },
+    {
+        "readStatus": true,
+        "lastNameAuthor": "ddd",
+        "firstNameAuthor": "ddd",
+        "title": "ddd",
+        "category": "ddd",
+        "uniqueID": "dfdf"
+    }
+]}

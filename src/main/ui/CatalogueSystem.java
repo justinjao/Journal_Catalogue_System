@@ -27,6 +27,8 @@ public class CatalogueSystem {
         initializeCatalogue();
     }
 
+    // MODIFIES: this
+    // EFFECTS: initializes catalogue system and menu display
     private void initializeCatalogue() {
         boolean keepGoing = true;
         String command = null;

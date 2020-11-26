@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import persistence.Writable;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 // Represents a catalogue system for storing journal articles.
 // Contains a list (hashset) of articles.
@@ -92,7 +91,7 @@ public class Catalogue implements Writable {
         return json;
     }
 
-
+    // EFFECTS: converts articleList to Json Array
     private JSONArray articleListToJson() {
         JSONArray articleListJsonArray = new JSONArray();
 

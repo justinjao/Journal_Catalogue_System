@@ -8,8 +8,9 @@ public class MethodsArticle extends Article {
                           String firstNameAuthor,
                           String lastNameAuthor,
                           String category,
-                          String uniqueID) {
-        super(title, firstNameAuthor, lastNameAuthor, category, uniqueID);
+                          String uniqueID,
+                          Boolean readStatus) {
+        super(title, firstNameAuthor, lastNameAuthor, category, uniqueID, readStatus);
     }
 
     //constructs a methods article without initializing fields

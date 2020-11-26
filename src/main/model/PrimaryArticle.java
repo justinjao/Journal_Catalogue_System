@@ -7,8 +7,8 @@ public class PrimaryArticle extends Article {
 
     // constructs a primary article
     public PrimaryArticle(String title, String firstNameAuthor,
-                          String lastNameAuthor, String category, String uniqueID) {
-        super(title, firstNameAuthor, lastNameAuthor, category, uniqueID);
+                          String lastNameAuthor, String category, String uniqueID, Boolean readStatus) {
+        super(title, firstNameAuthor, lastNameAuthor, category, uniqueID, readStatus);
     }
 
     //constructs a primary article without initializing fields

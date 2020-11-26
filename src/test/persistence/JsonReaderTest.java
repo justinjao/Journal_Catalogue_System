@@ -18,11 +18,11 @@ public class JsonReaderTest extends JsonTest {
 
     Article testArticle1 = new PrimaryArticle("Phenotype-driven precision oncology as a " +
             "guide for clinical decisions", "Shumei", "Chia",
-            "Oncology", "SCPhen");
+            "Oncology", "SCPhen", false);
 
     Article testArticle2 = new PrimaryArticle("Neuroscience Needs Behavior: " +
             "Correcting a Reductionist Bias", "Krakauer",
-            "John", "Neuroscience", "JKNN");
+            "John", "Neuroscience", "JKNN", false);
 
     @Test
     void testReaderFileDoesNotExist() {

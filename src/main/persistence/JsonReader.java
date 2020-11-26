@@ -87,7 +87,7 @@ public class JsonReader {
         String category = jsonObject.getString("category");
         boolean readStatus = jsonObject.getBoolean("readStatus");
         String uniqueID = jsonObject.getString("uniqueID");
-        Article article = new PrimaryArticle(title, firstNameAuthor, lastNameAuthor, category, uniqueID);
+        Article article = new PrimaryArticle(title, firstNameAuthor, lastNameAuthor, category, uniqueID, readStatus);
 
         // if current readStatus is true, then it sets the read status to true. Otherwise, by default it is false
         if (readStatus) {

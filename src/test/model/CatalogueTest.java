@@ -3,9 +3,6 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
-import java.util.HashSet;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 // NOTE: the IntegerSetInterface code from the CPSC210 project files was consulted quite often when writing these tests
@@ -23,10 +20,10 @@ public class CatalogueTest {
 
         testPrimaryArticle = new PrimaryArticle("Phenotype-driven precision oncology as a guide for clinical " +
                 "decisions one patient at a time", "Shumei",
-                "Chia", "Oncology", "SCPhen");
+                "Chia", "Oncology", "SCPhen", false);
 
         testMethodsArticle = new MethodsArticle("RGB marking with lentiviral vectors for multicolor clonal " +
-                "cell tracking", "Kristoffer", "Weber", "Cell Staining", "RGBWeber");
+                "cell tracking", "Kristoffer", "Weber", "Cell Staining", "RGBWeber", false);
     }
 
 

@@ -15,14 +15,20 @@ public abstract class Article implements Writable {
 
     // general constructor to make an article. User specifies the different fields of the paper
     // when they add it in. By default, readStatus is set to false. Primarily for ease of use in testing
-    public Article(String title, String firstNameAuthor, String lastNameAuthor, String category, String uniqueID) {
+    public Article(String title,
+                   String firstNameAuthor,
+                   String lastNameAuthor,
+                   String category,
+                   String uniqueID,
+                   Boolean readStatus) {
         this.title = title;
         this.firstNameAuthor = firstNameAuthor;
         this.lastNameAuthor = lastNameAuthor;
         this.category = category;
         this.uniqueID = uniqueID;
+        this.readStatus = readStatus;
 
-        readStatus = false;
+        //readStatus = false;
 
     }
 
@@ -124,6 +130,7 @@ public abstract class Article implements Writable {
         json.put("category", category);
         json.put("readStatus", readStatus);
         json.put("uniqueID", uniqueID);
+        json.put("readStatus", readStatus);
         return json;
     }
 }
