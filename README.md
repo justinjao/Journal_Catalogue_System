@@ -1,5 +1,7 @@
 # Journal Article Cataloguing System
 
+This was an academic project I worked on for my Introduction to Software Construction class at UBC. The project uses Java and JSwing to create a cataloguing system, and is tested using JUnit. Due to time constraints, I only managed to get a basic project, but I'm planning on coming back and reworking this at some point, when I have more free time.
+
 ##### A cataloguing system specifcally designed for organizing scientific writing. Think Goodreads, but for researchers.
 
 
